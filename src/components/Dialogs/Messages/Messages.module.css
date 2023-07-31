@@ -1,0 +1,44 @@
+.item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.item_sent {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+.photo_holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.message {
+    position: relative;
+    border: solid 2px rgb(202, 200, 200);
+    border-radius: 10px;
+    max-width: 250px;
+    padding: 10px 20px;
+    line-height: 28px;
+}
+
+.triangle {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-radius: 5px;
+    border-right-color: rgb(202, 200, 200);
+}
+
+.triangle_sent {
+    rotate: 180deg;
+    left: auto;
+    right: -40px;
+}

@@ -1,0 +1,13 @@
+.itemFrinds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemFrinds__name {
+    padding-right: 2px;
+}
+
+.itemFrinds__textSpan {
+    color: #fff;
+}

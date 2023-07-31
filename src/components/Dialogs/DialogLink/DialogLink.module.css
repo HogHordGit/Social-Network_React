@@ -1,0 +1,12 @@
+.list_name {
+    padding: 5px;
+    color: grey;
+    text-decoration: none;
+}
+
+.active {
+    font-size: 18px;
+    color: #343434;
+    font-weight: 600;
+    text-decoration: none;
+}

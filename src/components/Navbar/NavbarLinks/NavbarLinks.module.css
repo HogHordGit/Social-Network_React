@@ -1,0 +1,14 @@
+.menu__item {
+    font-size: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+  
+.menu__item a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.menu__item a.active {
+    color: #c4c4c4;
+}
