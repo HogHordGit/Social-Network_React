@@ -11,30 +11,34 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
+
     return (
         <div className="wrapper">
+
+            <div className="headerColor"></div>
+
             <div className="container">
 
                 <Header/>
 
-                <Navbar navbarData={props.state.navbarData}/>
+                <Navbar navbarData={props.store.navbarData}/>
 
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path='/'
                                element={<Profile
-                                   profilePage={props.state.profilePage}
+                                   store={props.store}
                                    dispatch={props.dispatch}
                                />}/>
 
                         <Route path="/profile/*"
                                element={<Profile
-                                   profilePage={props.state.profilePage}
+                                   store={props.store}
                                    dispatch={props.dispatch}
                                />}/>
                         <Route path="/dialogs/*"
                                element={<Dialogs
-                                   dialogsPage={props.state.dialogsPage}
+                                   dialogsPage={props.store.dialogsPage}
                                    dispatch={props.dispatch}
                                />}/>
                         <Route path="/news/*" element={<News/>}/>
@@ -44,6 +48,9 @@ const App = (props) => {
                 </div>
 
             </div>
+
+            <div className="footerColor"></div>
+
         </div>
     );
 }

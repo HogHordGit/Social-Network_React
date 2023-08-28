@@ -1,6 +1,7 @@
 .header {
     background-color: #15CD69;
     grid-area: header;
+    width: 100%;
 }
 
 .icon img {

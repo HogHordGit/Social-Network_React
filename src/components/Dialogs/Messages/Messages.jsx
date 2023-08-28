@@ -10,14 +10,14 @@ const checkMessage = (type, el) => {
 
 const Messages = (props) => {
     return (
-        <div className={ `${style.item} ${checkMessage(props.type, "body")}` }>
+        <div className={`${style.item} ${checkMessage(props.type, "body")}`}>
             <div className={style.photo_holder}>
                 <img src="./img/smile.jpg" alt="profile"/>
                 <div className={style.name}>{props.name}</div>
             </div>
             <div className={style.message}>
                 {props.message}
-                <span className={ `${style.triangle} ${checkMessage(props.type, "triangle")}` }></span>
+                <span className={`${style.triangle} ${checkMessage(props.type, "triangle")}`}></span>
             </div>
         </div>
     );

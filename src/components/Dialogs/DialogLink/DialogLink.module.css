@@ -10,3 +10,36 @@
     font-weight: 600;
     text-decoration: none;
 }
+
+.list {
+    padding-left: 30px;
+    margin-top: 20px;
+    color: grey;
+}
+
+.list > *:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.list_name:hover {
+    color: #3f3f3f;
+    font-size: 17px;
+    font-weight: 600;
+}
