@@ -21,25 +21,22 @@ const App = (props) => {
 
                 <Header/>
 
-                <Navbar navbarData={props.store.navbarData}/>
+                <Navbar navbarData={props.store.getState().navbarData}/>
 
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path='/'
                                element={<Profile
                                    store={props.store}
-                                   dispatch={props.dispatch}
                                />}/>
 
                         <Route path="/profile/*"
                                element={<Profile
                                    store={props.store}
-                                   dispatch={props.dispatch}
                                />}/>
                         <Route path="/dialogs/*"
                                element={<Dialogs
-                                   dialogsPage={props.store.dialogsPage}
-                                   dispatch={props.dispatch}
+                                   store={props.store}
                                />}/>
                         <Route path="/news/*" element={<News/>}/>
                         <Route path="/music/*" element={<Music/>}/>

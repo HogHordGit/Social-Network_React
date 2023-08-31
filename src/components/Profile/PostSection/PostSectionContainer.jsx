@@ -7,15 +7,16 @@ const PostSectionContainer = (props) => {
     const state = props.store;
 
     const postButtonEvent = () => {
-        props.dispatch( addProfileActionCreator() );
+        props.dispatch(addProfileActionCreator());
     };
 
     const onPostChange = (text) => {
-        props.dispatch( updateProfileActionCreator(text) );
+        props.dispatch(updateProfileActionCreator(text));
     };
 
     return (
-        <PostSection updateNewPostText={ onPostChange } addPost={ postButtonEvent }
+        <PostSection updateNewPostText={onPostChange}
+                     addPost={postButtonEvent}
                      postsData={state.profilePage.postsData}
                      newPostText={state.profilePage.newPostText}
         />

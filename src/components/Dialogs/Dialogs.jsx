@@ -7,7 +7,7 @@ import DialogSectionContainer from "./DialogSection/DialogSectionContainer";
 
 const Dialogs = (props) => {
 
-    const state = props.dialogsPage;
+    const state = props.store.getState();
 
     return (
         <section>
@@ -18,13 +18,14 @@ const Dialogs = (props) => {
 
                 <div className={style.left_side}>
 
-                    <DialogLinkSection dialogData={props.dialogsPage.dialogData}/>
+                    <DialogLinkSection dialogData={state.dialogsPage.dialogData}/>
 
                 </div>
 
                 <div className={style.right_side}>
 
-                    <DialogSectionContainer messagesData={state.messagesData} newMessageText={props.dialogsPage.newDialogText} dispatch={props.dispatch}/>
+                    <DialogSectionContainer store={state}
+                                            dispatch={props.store.dispatch}/>
 
                 </div>
             </div>

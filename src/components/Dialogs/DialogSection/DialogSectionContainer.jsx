@@ -4,8 +4,6 @@ import {addDialogActionCreator, updateDialogActionCreator} from "../../../redux/
 
 const DialogSectionContainer = (props) => {
 
-    console.log(props);
-
     const dialogButtonEvent = () => {
         props.dispatch(addDialogActionCreator());
     };
@@ -17,8 +15,8 @@ const DialogSectionContainer = (props) => {
     return (
         <DialogSection addDialog={dialogButtonEvent}
                        updateNewDialogText={onDialogChange}
-                       newMessageText={props.newMessageText}
-                       messagesData={props.messagesData}
+                       newMessageText={props.store.dialogsPage.newDialogText}
+                       messagesData={props.store.dialogsPage.messagesData}
         />
     )
 };

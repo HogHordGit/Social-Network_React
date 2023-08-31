@@ -7,6 +7,8 @@ import PostSectionContainer from "./PostSection/PostSectionContainer";
 
 const Profile = (props) => {
 
+    const state = props.store.getState();
+
     return (
         <main className={style.main}>
 
@@ -16,13 +18,13 @@ const Profile = (props) => {
 
             <div className={`${style.content__aboutUser} ${style.aboutUser}`}>
 
-                <ProfileInfo info={props.store.profilePage.userData}/>
+                <ProfileInfo info={state.profilePage.userData}/>
 
             </div>
 
             <div className={`${style.content__userPosts} ${style.userPosts}`}>
 
-                <PostSectionContainer store={props.store} dispatch={props.dispatch}/>
+                <PostSectionContainer store={state} dispatch={props.store.dispatch}/>
 
             </div>
 

@@ -8,26 +8,26 @@ import './index.css';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import StoreContext from "./StoreContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const rerenderEntireTree = (state) => {
+const rerenderEntireTree = (store) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App
-                    store={state}
-                    dispatch={store.dispatch.bind(store)}
-                    />
+                <StoreContext.Provider value={store}>
+                    <App store={store}/>
+                </StoreContext.Provider>
             </BrowserRouter>
         </React.StrictMode>
     );
 };
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree(store);
 
 store.subscribe(() => {
-    rerenderEntireTree(store.getState());
+    rerenderEntireTree(store);
 });
 
 // If you want to start measuring performance in your app, pass a function
