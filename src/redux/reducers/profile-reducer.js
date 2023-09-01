@@ -16,7 +16,8 @@ const initialState = {
             webSite: "https://it-kamasutra.com",
             userImg: "./img/user-photo.png"
         },
-        newPostText: ""
+        newPostText: "",
+        checkFocus: null
 };
 
 const profileReducer = (state = initialState, action) => {

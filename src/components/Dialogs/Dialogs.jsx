@@ -4,10 +4,9 @@ import style from "./Dialogs.module.css";
 
 import DialogLinkSection from "./DialogLink/DialogLinkSection";
 import DialogSectionContainer from "./DialogSection/DialogSectionContainer";
+import StoreContext from "../../StoreContext";
 
 const Dialogs = (props) => {
-
-    const state = props.store.getState();
 
     return (
         <section>
@@ -18,14 +17,21 @@ const Dialogs = (props) => {
 
                 <div className={style.left_side}>
 
-                    <DialogLinkSection dialogData={state.dialogsPage.dialogData}/>
+                    <StoreContext.Consumer>
+                        {
+                            (store) => {
+                                const state = store.getState();
+
+                                return <DialogLinkSection dialogData={state.dialogsPage.dialogData}/>
+                            }
+                        }
+                    </StoreContext.Consumer>
 
                 </div>
 
                 <div className={style.right_side}>
 
-                    <DialogSectionContainer store={state}
-                                            dispatch={props.store.dispatch}/>
+                    <DialogSectionContainer />
 
                 </div>
             </div>

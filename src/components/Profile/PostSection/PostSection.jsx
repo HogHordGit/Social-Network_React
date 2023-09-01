@@ -17,7 +17,9 @@ const PostSection = (props) => {
         props.updateNewPostText(text);
     };
 
-    const newProfileText = props.newPostText;
+    const onKeyCheckEvent = (e) => {
+        if (e.code === "Enter") props.addPost();
+    };
 
     return (
         <div>
@@ -27,7 +29,8 @@ const PostSection = (props) => {
                 <label>Write post:</label>
                 <textarea className={style.userPosts__textArea}
                           onChange={onPostChange}
-                          value={newProfileText}
+                          onKeyDown={onKeyCheckEvent}
+                          value={props.newPostText}
                           placeholder="your news..."></textarea>
             </div>
 

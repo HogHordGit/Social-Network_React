@@ -17,6 +17,10 @@ const DialogSection = (props) => {
         props.updateNewDialogText(text);
     };
 
+    const onKeyCheckEvent = (e) => {
+        if (e.code === "Enter") props.addDialog();
+    };
+
     return (
         <div>
 
@@ -27,6 +31,7 @@ const DialogSection = (props) => {
                     <label>Write message:</label>
                     <textarea className={style.textarea__text}
                               onChange={onDialogChange}
+                              onKeyDown={onKeyCheckEvent}
                               value={props.newMessageText}
                               placeholder="your message..."></textarea>
                 </div>
