@@ -1,40 +1,35 @@
 import "./PostSection.module.css";
-import React from "react";
 import PostSection from "./PostSection";
 import {
     addProfileActionCreator,
     updateProfileActionCreator
 } from "../../../redux/reducers/profile-reducer";
-import StoreContext from "../../../StoreContext";
+import {connect} from "react-redux";
+import PostExample from "../PostExample/PostExample";
 
-const PostSectionContainer = (props) => {
 
-    return (
+const mapStateToProps = (state) => {
 
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    const state = store.getState();
+    const postElements = state.profilePage.postsData
+        .map(post => <PostExample message={post.text} numLike={post.likes} numDislike={post.dislikes} key={post.id}/>);
 
-                    const postButtonEvent = () => {
-                        store.dispatch(addProfileActionCreator());
-                    };
-
-                    const onPostChange = (text) => {
-                        store.dispatch(updateProfileActionCreator(text));
-                    };
-
-                    return <PostSection updateNewPostText={onPostChange}
-                                 addPost={postButtonEvent}
-                                 postsData={state.profilePage.postsData}
-                                 newPostText={state.profilePage.newPostText}
-                                 focusValue={state.profilePage.checkFocus}
-                    />
-                }
-            }
-        </StoreContext.Consumer>
-
-    )
+    return {
+        newPostText: state.profilePage.newPostText,
+        postElements
+    };
 };
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewPostText: (text) => {
+            dispatch(updateProfileActionCreator(text));
+        },
+        addPost: () => {
+            dispatch(addProfileActionCreator());
+        }
+    };
+};
+
+const PostSectionContainer = connect(mapStateToProps, mapDispatchToProps)(PostSection);
 
 export default PostSectionContainer;

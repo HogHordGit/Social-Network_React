@@ -1,12 +1,8 @@
 import "./PostSection.module.css";
 import style from "./PostSection.module.css";
 import React from "react";
-import PostExample from "../PostExample/PostExample";
 
 const PostSection = (props) => {
-
-    const postElements = props.postsData
-        .map(post => <PostExample message={post.text} numLike={post.likes} numDislike={post.dislikes} key={post.id}/>);
 
     const postButtonEvent = () => {
         props.addPost();
@@ -40,7 +36,7 @@ const PostSection = (props) => {
 
             <div className={`${style.content__comments} ${style.comments}`}>
 
-                {postElements}
+                {props.postElements}
 
             </div>
         </div>

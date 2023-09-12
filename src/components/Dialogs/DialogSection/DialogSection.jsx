@@ -1,12 +1,8 @@
 import React from 'react';
 
 import style from "./DialogSection.module.css";
-import Messages from "../Messages/Messages";
 
 const DialogSection = (props) => {
-
-    const messagesElements = props.messagesData
-        .map(message => <Messages name={message.name} message={message.message} type={message.type} key={message.id}/>);
 
     const dialogButtonEvent = () => {
         props.addDialog();
@@ -24,7 +20,7 @@ const DialogSection = (props) => {
     return (
         <div>
 
-            {messagesElements}
+            {props.messagesElements}
 
             <div className={`${style.rightSide__textarea} ${style.textarea}`}>
                 <div className={style.textarea__input}>

@@ -2,9 +2,8 @@ import React from 'react';
 
 import style from "./Profile.module.css";
 
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 import PostSectionContainer from "./PostSection/PostSectionContainer";
-import StoreContext from "../../StoreContext";
 
 const Profile = (props) => {
 
@@ -17,15 +16,7 @@ const Profile = (props) => {
 
             <div className={`${style.content__aboutUser} ${style.aboutUser}`}>
 
-                <StoreContext.Consumer>
-                    {
-                        (store) => {
-                            const state = store.getState();
-
-                            return <ProfileInfo info={state.profilePage.userData}/>
-                        }
-                    }
-                </StoreContext.Consumer>
+                <ProfileInfoContainer />
 
             </div>
 

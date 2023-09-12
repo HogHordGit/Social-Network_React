@@ -2,9 +2,8 @@ import React from 'react';
 
 import style from "./Dialogs.module.css";
 
-import DialogLinkSection from "./DialogLink/DialogLinkSection";
 import DialogSectionContainer from "./DialogSection/DialogSectionContainer";
-import StoreContext from "../../StoreContext";
+import DialogLinkSectionContainer from "./DialogLink/DialogLinkSectionContainer";
 
 const Dialogs = (props) => {
 
@@ -17,15 +16,7 @@ const Dialogs = (props) => {
 
                 <div className={style.left_side}>
 
-                    <StoreContext.Consumer>
-                        {
-                            (store) => {
-                                const state = store.getState();
-
-                                return <DialogLinkSection dialogData={state.dialogsPage.dialogData}/>
-                            }
-                        }
-                    </StoreContext.Consumer>
+                    <DialogLinkSectionContainer />
 
                 </div>
 
