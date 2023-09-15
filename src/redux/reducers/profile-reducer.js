@@ -25,20 +25,32 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             if (state.newPostText.trim() === "") return state;
 
-            const arrLength = state.postsData.length;
+            const copiedStateADD = {...state};
+            copiedStateADD.postsData = [...state.postsData];
+
+            const arrLength = copiedStateADD.postsData.length;
 
             const newPost = {
                 id: arrLength + 1,
-                text: state.newPostText,
+                text: copiedStateADD.newPostText,
                 likes: 0,
                 dislikes: 0
             };
-            state.postsData[`${arrLength + 1}`] = (newPost);
-            state.newPostText = "";
-            return state;
+
+            copiedStateADD.postsData[`${arrLength}`] = (newPost);
+
+            copiedStateADD.newPostText = "";
+
+            console.log(copiedStateADD);
+
+            return copiedStateADD;
+
         case PROFILE_UPDATE:
-            state.newPostText = action.newText;
-            return state;
+            const copiedStateUPDATE = {...state};
+
+            copiedStateUPDATE.newPostText = action.newText;
+            return copiedStateUPDATE;
+
         default:
             return state;
     }
