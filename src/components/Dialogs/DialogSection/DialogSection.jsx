@@ -14,7 +14,7 @@ const DialogSection = (props) => {
     };
 
     const onKeyCheckEvent = (e) => {
-        if (e.code === "Enter") props.addDialog();
+        if (e.code === "Enter") dialogButtonEvent();
     };
 
     return (

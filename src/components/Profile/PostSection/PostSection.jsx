@@ -14,7 +14,7 @@ const PostSection = (props) => {
     };
 
     const onKeyCheckEvent = (e) => {
-        if (e.code === "Enter") props.addPost();
+        if (e.code === "Enter") postButtonEvent();
     };
 
     return (

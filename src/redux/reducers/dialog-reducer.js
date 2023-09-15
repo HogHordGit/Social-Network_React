@@ -32,34 +32,30 @@ const initialState = {
 };
 
 const dialogReducer = (state = initialState, action) => {
+
+    // make copy of state and return modified one.
+
     switch (action.type) {
         case ADD_DIALOG:
             if (state.newDialogText.trim() === "") return state;
 
-            const copiedStateADD = {...state};
-            copiedStateADD.messagesData = [...state.messagesData];
-
-            const arrLength = copiedStateADD.messagesData.length;
-
-            const newDialog = {
-                id: arrLength + 1,
-                name: "Me",
-                message: copiedStateADD.newDialogText,
-                type: "sent"
+            return  {
+                ...state,
+                newDialogText: "",
+                messagesData: [...state.messagesData, {
+                    id: state.messagesData.length + 1,
+                    name: "Me",
+                    message: state.newDialogText,
+                    type: "sent"
+                }]
             };
 
-            copiedStateADD.messagesData[`${arrLength}`] = (newDialog);
-
-            copiedStateADD.newDialogText = "";
-
-            return copiedStateADD;
-
         case DIALOG_UPDATE:
-            const copiedStateUPDATE = {...state};
+            return {
+                ...state,
+                newDialogText: action.newText
+            };
 
-            copiedStateUPDATE.newDialogText = action.newText;
-
-            return copiedStateUPDATE;
         default:
             return state;
     }
