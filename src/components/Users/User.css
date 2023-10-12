@@ -1,0 +1,76 @@
+.users {
+    width: 100%;
+    height: 100%;
+}
+
+.users__body {
+    margin: 40px 0 0 30px;
+}
+
+.uItem__image img {
+    width: 70px;
+    height: 70px;
+}
+
+.uItem {
+    display: grid;
+    grid-template-columns: 0.15fr 1fr;
+    max-width: 800px;
+    gap: 10px;
+}
+
+.uItem__photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.uItem__button button {
+    background-color: #15CD69;
+    width: 90px;
+    height: 30px;
+    color: #ffffff;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+}
+
+.users__button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.users__button button {
+    cursor: pointer;
+}
+
+.uItem__info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.uItem__aboutBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.uItem__name span {
+    color: dimgray;
+    font-size: 20px;
+}
+
+.uItem__message {
+    color: dimgray;
+}
+
+.uItem__location {
+    color: dimgray;
+    font-size: 20px;
+    font-weight: 500;
+}

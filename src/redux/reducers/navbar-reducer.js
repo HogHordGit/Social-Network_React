@@ -4,7 +4,8 @@ const initialState = {
         {id: 2, link: "/dialogs", title: "Messages"},
         {id: 3, link: "/news", title: "News"},
         {id: 4, link: "/music", title: "Music"},
-        {id: 5, link: "/settings", title: "Settings"},
+        {id: 5, link: "/users", title: "Find users"},
+        {id: 6, link: "/settings", title: "Settings"},
     ],
     navFriends: [
         {id: 1, img: "./img/frinds-photo.png", name: "Andrew"},
