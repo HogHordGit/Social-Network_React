@@ -1,15 +1,16 @@
 import React from "react";
 
 const UserItem = (props) => {
+
   return (
       <div className="users__item uItem">
 
           <div className="uItem__photo">
               <div className="uItem__image">
-                  <img src="./img/smile.jpg" alt="face"/>
+                  <img src={props.photoUrl} alt="face"/>
               </div>
               <div className="uItem__button">
-                  <button>Follow</button>
+                  {props.followed ? <button>Follow</button> : <button>Unfollow</button>}
               </div>
           </div>
 
@@ -17,7 +18,7 @@ const UserItem = (props) => {
               <div className="uItem__about">
                   <div className="uItem__aboutBody">
                       <div className="uItem__name">
-                          <span>{props.fullName}</span>
+                          <span>{`${props.fullName}.`}</span>
                       </div>
                       <div className="uItem__message">
                           <span>{props.status}</span>
@@ -25,7 +26,7 @@ const UserItem = (props) => {
                   </div>
               </div>
               <div className="uItem__location">
-                  <span>---</span>
+                  <span>{`${props.location[0]}, ${props.location[1]}`}</span>
               </div>
           </div>
 

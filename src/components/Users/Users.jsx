@@ -1,6 +1,5 @@
 import React from "react";
 import "./User.css";
-import UsersListContainer from "./UsersList/UsersListContainer";
 
 const Users = (props) => {
     return (
@@ -11,7 +10,7 @@ const Users = (props) => {
 
             <div className="users__body">
 
-                <UsersListContainer />
+                {props.usersElements}
 
             </div>
 

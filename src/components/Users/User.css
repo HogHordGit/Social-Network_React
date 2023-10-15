@@ -17,6 +17,7 @@
     grid-template-columns: 0.15fr 1fr;
     max-width: 800px;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .uItem__photo {
@@ -42,6 +43,12 @@
 
 .users__button button {
     cursor: pointer;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #15CD69;
+    padding: 20px 60px;
+    border: none;
 }
 
 .uItem__info {
