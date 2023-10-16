@@ -1,15 +1,27 @@
+// eslint-disable-next-line
 import React from "react";
 import {connect} from "react-redux";
 import UserItem from "./UserItem";
+import {followAC, setUsersAC, unfollowAC} from "../../../redux/reducers/users-reducer";
 
 const mapStateToProps = (state) => {
     return {
-        userInfo: state.usersPage.usersData
+        usersData: state.usersPage.usersData,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-
+    return {
+        follow: (userID) => {
+            dispatch(followAC(userID));
+        },
+        unfollow: (userID) => {
+            dispatch(unfollowAC(userID));
+        },
+        setUsers: (users) => {
+            dispatch(setUsersAC(users));
+        }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserItem);
