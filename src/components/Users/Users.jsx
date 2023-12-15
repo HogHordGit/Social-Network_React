@@ -1,7 +1,13 @@
 import React from "react";
 import "./User.css";
+import axios from "axios";
+import UserItem from "./UserItem/UserItem";
 
 const Users = (props) => {
+
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(res => {
+        // props.setUsers(res.data.items);
+    });
 
     if (props.users.length === 0) {
         props.setUsers([
@@ -40,6 +46,9 @@ const Users = (props) => {
         ]);
     }
 
+    const usersElements = props.users
+        .map(user => <UserItem user={user} key={user.id} follow={props.follow} unfollow={props.unfollow}/>)
+
     return (
         <div className="users_holder users">
             <div className="users__title">
@@ -48,7 +57,7 @@ const Users = (props) => {
 
             <div className="users__body">
 
-                {props.usersElements}
+                {usersElements}
 
             </div>
 
